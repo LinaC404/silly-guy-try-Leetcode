@@ -1,3 +1,5 @@
+# 关于快慢指针确定是否拥有闭环
+# 设一指针回到起点，两指针均指向the next ,相遇处即为交点
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
