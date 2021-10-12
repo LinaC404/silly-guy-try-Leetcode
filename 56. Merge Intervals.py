@@ -1,3 +1,4 @@
+"""Rewrite"""
 """range problem"""
 class Solution1(object):
     def merge(self, intervals):
