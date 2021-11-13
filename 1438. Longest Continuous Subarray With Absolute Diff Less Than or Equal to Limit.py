@@ -35,9 +35,9 @@ class Solution(object):
     Monoyonic Queue  N^2 -> N
     最小值 单调递增
     最大值 单调递减
-
-    https://blog.csdn.net/m0_37149062/article/details/107188011
-    对lcollcetionsz中的数据结构的操作不熟悉
+    
+    
+    对collcetions中的内置数据结构的操作不熟悉
     """
     def longestSubarray(self, nums, limit):
         max_queue = deque()
