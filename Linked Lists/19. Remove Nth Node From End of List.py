@@ -36,7 +36,6 @@ class MySolution(object):
         return start
 
 """快慢指针
-e.g.
 n = 2
 dummy->1 ->2 -> 3 ->4 ->5
   f
