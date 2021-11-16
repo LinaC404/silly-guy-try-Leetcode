@@ -74,7 +74,7 @@ class Solution(object):
                 else:
                     # print("DEL",dot)
                     del corner[dot]
-            # print(corner)
+   
         if len(corner)==4 and sum_rec==square:
             for j in mycorner:
                 if not j in corner:
