@@ -67,7 +67,6 @@ class Solution(object):
             right = rectangles[i][2]
             sum_rec = sum_rec + (right-left)*(top-bottom)
             dots = [(left,bottom),(left,top),(right,top),(right,bottom)]
-            # print(dots)
             for dot in dots:
                 if not corner[dot]:
                     corner[dot] = 1
