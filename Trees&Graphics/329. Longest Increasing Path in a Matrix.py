@@ -28,6 +28,37 @@ class Solution(object):
                 nextpath(i,j,i,j,1)
                 print(path)
         return 
+    
+    def longestIncreasingPath(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: int
+        """
+        rows = len(matrix)
+        cols = len(matrix[0])
+        path = [[-1 for i in range(cols)] for j in range(rows)]
+
+        def nextpath(i,j):
+            if path[i][j]!=-1:
+                return path[i][j]
+            directions = [[0,-1],[0,1],[-1,0],[1,0]]
+            res = 1
+            for dire in directions:
+                nextm,nextn = i+dire[0],j+dire[1]
+                if 0<=nextm<rows and 0<=nextn<cols:
+                    if matrix[nextm][nextn]>matrix[i][j]:
+                        step = nextpath(nextm,nextn)+1
+                        res = max(res,step)
+            path[i][j]=res
+            return res
+        ans = 0
+        for i in range(rows):
+            for j in range(cols):
+                step = nextpath(i,j)
+                ans = max(step,ans)
+     
+        return ans
+
 
 
 
