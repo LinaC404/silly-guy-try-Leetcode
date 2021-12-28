@@ -27,12 +27,11 @@ class Solution(object):
         # word:   XXX       XXXXX
         # j:      matched   ^      is the current index  
         def dfs(word,j,node,visited):
-            print(word,j)
-            print(visited)
             if j==len(word):
                 return True
             
-            # Optimization
+            # Optimization: when next time, if the visited[j] is 1,return false to remove the repeative search! 
+            # To avoid TLE
             if visited[j]==1:
                 return False
 
@@ -59,16 +58,11 @@ class Solution(object):
                 res.append(word)
             root.insert(word)
         return res
-
-
-
-
-
         
 if __name__=="__main__":
     # words = ["cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"]
     # check empty 
     # words = ['']
-    words = ["a","aa","aaa","aaab"]
+    words = ["a","aa","aaa","aaba"]
     a = Solution()
     a.findAllConcatenatedWordsInADict(words)
