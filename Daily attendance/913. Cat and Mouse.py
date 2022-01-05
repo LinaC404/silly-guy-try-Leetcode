@@ -19,7 +19,6 @@ class Solution(object):
         若超过了 2n步，则老鼠必定走了回头路，此时不管猫在哪，走回头路都是向猫 “妥协” 的选择；
         同理对猫来说，走回头路也是向老鼠 “妥协” 的结果；故最大的 t 只需要 2n 即可。
         我们从 solve(1,2,0) 开始记忆化搜索即可。
-
         """
         # top down (m,c,times)
         # if the move time > 2*nodes ->repeated path -> draw           0
