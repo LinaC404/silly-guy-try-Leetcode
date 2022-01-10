@@ -1,5 +1,5 @@
 class Solution(object):
-    def isAdditiveNumber(self, num):
+    def isAdditiveNumber1(self, num):
         """
         :type num: str
         :rtype: bool
@@ -39,8 +39,35 @@ class Solution(object):
                     return True
         return False
 
+    def isAdditiveNumber2(self, num):
+        """
+        :type num: str
+        :rtype: bool
+        Runtime: 28 ms, faster than 32.47% of Python online submissions for Additive Number.
+        Memory Usage: 13.6 MB, less than 33.77% of Python online submissions for Additive Number.
+        https://blog.csdn.net/fuxuemingzhu/article/details/80657420
+        """
+        return self.dfs(num, [])
+
+    def dfs(self, num_str, path):
+        if len(path) >= 3 and  path[-1] != path[-2] + path[-3]:
+            return False
+        if not num_str and len(path) >= 3:
+            return True
+
+        length = len(num_str)
+        if len(path)>=3:
+            length = min(len(num_str),len(str(path[-2]+path[-3]))+1)
+
+        for i in range(length):
+            curr = num_str[:i+1]
+            if (curr[0] == '0' and len(curr) != 1):
+                continue
+            if self.dfs(num_str[i+1:], path + [int(curr)]):
+                return True
+        return False
 
 if __name__=="__main__":
-    num = "111"
+    num = "111122335588143"
     a = Solution()
-    print(a.isAdditiveNumber(num))
+    print(a.isAdditiveNumber2(num))
