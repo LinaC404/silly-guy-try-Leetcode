@@ -28,13 +28,14 @@ class Solution(object):
             elif a>j:
                 res.append([mylist[a],mylist[b]])
         return res
-    
     def insert2(self, intervals, newInterval):
         """
         https://maxming0.github.io/2020/09/13/Insert-Interval/
         # while less than newInterval[0], append
         # merge
         # while greater than newInterval[1],extend
+        Runtime: 151 ms, faster than 6.54% of Python3 online submissions for Insert Interval.
+        Memory Usage: 17.5 MB, less than 72.12% of Python3 online submissions for Insert Interval.
         """
         _N = len(intervals)
         if _N == 0: return [newInterval]
@@ -52,16 +53,7 @@ class Solution(object):
         res.append([l,r])
         return res.extend(intervals[i:])
 
-        
-
-
-            
-
-
-    
-        
-
-
+  
         
 if __name__=="__main__":
     intervals = []
