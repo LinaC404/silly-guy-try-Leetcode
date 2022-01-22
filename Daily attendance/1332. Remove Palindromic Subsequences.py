@@ -3,6 +3,7 @@ class Solution(object):
         """
         :type s: str
         :rtype: int
+        
         * subsequence does not necessarily need to be contiguous.
         0: empty s
         1: Palindromic array
