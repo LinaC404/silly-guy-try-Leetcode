@@ -6,7 +6,6 @@ class Solution(object):
         :rtype: int
         minimum number of ->BFS
         TLE 23 / 32 test cases passed.
-
         Runtime: 1586 ms, faster than 17.83% of Python online submissions for Jump Game IV.
         Memory Usage: 27.5 MB, less than 85.18% of Python online submissions for Jump Game IV.
         """
