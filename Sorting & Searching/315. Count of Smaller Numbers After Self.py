@@ -1,28 +1,41 @@
+class Fenwick_Tree:
+    def __init__(self,n):
+        self._n = n
+        self.fre = [0 for i in range(n+1)]
+    
+    def update(self,i,delta):
+        while i <= self._n:
+            self.fre[i] += delta
+            i += i&-i
+    
+    def query(self,i):
+        sum = 0
+        while i > 0:
+            sum += self.fre[i]
+            i -= i&-i
+        return sum    
+
 class Solution(object):
     def countSmaller(self, nums):
         """
         :type nums: List[int]
         :rtype: List[int]
-        Not finished 
+        reverse -> rank ->  prefix sum -> Fenwick Tree
+        https://www.youtube.com/watch?v=2SVLYsq5W8M
+        Runtime: 2284 ms, faster than 91.03% of Python3 online submissions for Count of Smaller Numbers After Self.
+        Memory Usage: 36.3 MB, less than 45.21% of Python3 online submissions for Count of Smaller Numbers After Self.
         """
-        res = [0 for i in range(len(nums))]
+        sort_list = sorted(set(nums))
+        ranks = {}
+        for i in range(len(sort_list)):
+            ranks[sort_list[i]] = i+1
 
-        def count(i):
-            flag = float("inf")
-            for j in range(len(nums)-1,i,-1):
-                if nums[i]>nums[j]:
-                    if nums[j] < flag:
-                        flag = nums[j]
-                        res[i] = res[i]+1
-                    else:
-                        res[i] = max(res[i],res[j]+1)
-
-
-        for i in range(len(nums)-2,-1,-1):
-            count(i)
-        return res
+        ans = []
+        tree = Fenwick_Tree(len(nums))
+        for i in range(len(nums)-1,-1,-1):
+            # [(            ) curr]
+            #                   ^ i
+            ans.append(tree.query(ranks[nums[i]]-1))
+            tree.update(ranks[nums[i]],1)
         
-if __name__=="__main__":
-    nums = [2,0,1]
-    a = Solution()
-    print(a.countSmaller(nums))
+        return ans[::-1]
