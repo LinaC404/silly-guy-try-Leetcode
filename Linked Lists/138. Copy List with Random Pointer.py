@@ -1,4 +1,5 @@
 # Definition for a Node.
+
 from collections import defaultdict
 class Node:
     def __init__(self, x, next=None, random=None):
