@@ -20,7 +20,6 @@ class Solution(object):
                     pairs.append([state['R'][i],state['L'][j]])
                     break
                 j += 1
-
         for seg_l,seg_r in pairs:
             mid = (seg_l+seg_r)//2
             if (seg_l+seg_r)%2 == 0:
