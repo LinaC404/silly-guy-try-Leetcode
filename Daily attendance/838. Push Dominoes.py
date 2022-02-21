@@ -63,3 +63,34 @@ if __name__=="__main__":
     dominoes = ".L.R...LR..L.."
     a = Solution()
     print(a.pushDominoes(dominoes))
+  ----------------------------------------------------------------------------------------------------------
+class Solution(object):
+    def pushDominoes(self, dominoes):
+        """
+        :type dominoes: str
+        :rtype: str
+        'R......R' => 'RRRRRRRR'
+        'R......L' => 'RRRRLLLL' or 'RRRR.LLLL'
+        'L......R' => 'L......R'
+        'L......L' => 'LLLLLLLL'
+        Runtime: 318 ms, faster than 87.50% of Python online submissions for Push Dominoes.
+        Memory Usage: 21.6 MB, less than 25.00% of Python online submissions for Push Dominoes.
+        """
+        dominoes = "L" + dominoes + "R"
+        res = []
+        l = 0
+        for r in range(1,len(dominoes)):
+            if dominoes[r] == '.':
+                continue
+            mid = r-l-1
+            print(mid)
+            if l!=0: #add current except
+                res.append(dominoes[l])
+            if dominoes[l] == dominoes[r]:
+                res.append(dominoes[l]*mid)
+            elif dominoes[l] == 'L' and dominoes[r] == 'R':
+                res.append('.'*mid)
+            else:
+                res.append('R'*(mid//2)+'.'*(mid%2)+'L'*(mid//2))
+            l = r
+        return "".join(res)
