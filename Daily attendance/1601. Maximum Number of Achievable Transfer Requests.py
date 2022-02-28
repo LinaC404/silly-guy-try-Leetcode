@@ -1,3 +1,29 @@
+import itertools
+class Solution(object):
+    def maximumrequestsuests(self, n, requests):
+        """
+        :type n: int
+        :type requestsuests: List[List[int]]
+        :rtype: int
+        HINT: 1 <= requests.length <= 16
+        k,k-1,k-2,1...: all the combinations
+        indegree==outdegree -> return
+        Runtime: 1011 ms, faster than 83.61% of Python3 online submissions for Maximum Number of Achievable Transfer Requests.
+        Memory Usage: 13.9 MB, less than 84.43% of Python3 online submissions for Maximum Number of Achievable Transfer Requests.
+        """
+                
+        for k in range(len(requests), 0, -1):
+            # tuple, all the combinations, length is k
+            for c in itertools.combinations(range(len(requests)), k):
+                degree = [0] * n
+                for i in c:
+                    degree[requests[i][0]] -= 1
+                    degree[requests[i][1]] += 1
+                if not any(degree):
+                    return k
+        return 0
+    
+-------------------------------------------------------------
 from collections import defaultdict,Counter
 import copy
 class Solution(object):
@@ -6,7 +32,7 @@ class Solution(object):
         :type n: int
         :type requests: List[List[int]]
         :rtype: int
-        85 / 117 test cases passed.
+        85 / 117 test cases passed. :(
         """
         self.res = 0
         # count = Counter(sum(requests,[]))
