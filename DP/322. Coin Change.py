@@ -1,6 +1,7 @@
 class Solution(object):
-    def coinChange(self, coins, amount):
+    def coinChange1(self, coins, amount):
         """
+        https://www.youtube.com/watch?v=uUETHdijzkA
         :type coins: List[int]
         :type amount: int
         :rtype: int
@@ -21,7 +22,31 @@ class Solution(object):
         if dp[-1] == float("inf"):
             return -1
         return dp[-1]
-                
+    
+    def coinChange2(self, coins, amount):
+        """
+        TLE 
+        ?
+        """
+        # DFS + greedy + pruning(cut down time)
+        self.res = float("inf")
+        coins = sorted(coins,reverse=True)
+        
+        def dfs(idx,amount,count):
+            if amount == 0:
+                self.res = count
+                return
+            if idx == len(coins):
+                return
+
+            print(coins[idx],amount,count)
+            coin = coins[idx]
+            for j in range(amount//coin,-1,-1):
+                if count+j>self.res:
+                    break
+                dfs(idx+1,amount-j*coin,count+j)
+        dfs(0,amount,0)
+        return -1 if self.res==float("inf") else self.res
 
 if __name__=="__main__":
     coins = [2147483647]
