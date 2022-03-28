@@ -1,7 +1,3 @@
-from __future__ import annotations
-from distutils.spawn import spawn
-
-
 class Solution(object):
     def splitArray(self, nums, m):
         """
