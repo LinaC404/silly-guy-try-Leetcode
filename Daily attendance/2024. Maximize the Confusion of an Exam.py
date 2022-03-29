@@ -24,18 +24,6 @@ class Solution(object):
                 print(l,r)
                 ans = max(ans,li[r+1]-li[l-1]-1)
         return ans
-    def maxConsecutiveAnswers(self, answerKey, k):
-        counter = {}
-        n = len(answerKey)
-        max_cnt = 0
-        for i in range(n):
-            c = answerKey[i]
-            counter[c] = counter.get(c, 0) + 1
-            max_cnt = max(max_cnt, counter[c])
-            if j - i + 1 > max_cnt + k:
-                counter[answerKey[i]] -= 1
-                i += 1
-        return j-i+1
 
         
 if __name__=="__main__":
