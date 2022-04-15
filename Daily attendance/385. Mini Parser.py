@@ -8,7 +8,6 @@
 #        If value is not specified, initializes an empty list.
 #        Otherwise initializes a single integer equal to value.
 #        """
-
 #    def isInteger(self):
 #        """
 #        @return True if this NestedInteger holds a single integer, rather than a nested list.
