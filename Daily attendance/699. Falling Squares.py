@@ -7,7 +7,6 @@ class Solution(object):
         Memory Usage: 14.1 MB, less than 75.00% of Python online submissions for Falling Squares.
         """
         ans = [0 for i in range(len(positions))]
-        ans[0]
         # (start,end,height)
         interval = [(positions[0][0],positions[0][0]+positions[0][1],positions[0][1])]
         for i in range(1,len(positions)):
