@@ -30,10 +30,6 @@ class Solution(object):
                 while new_node.left:
                     new_node = new_node.left
                 root.val = new_node.val
-                new_node = root.right
-                while new_node.left:
-                    new_node = new_node.left
-                root.val = new_node.val
                 root.right = self.deleteNode(root.right,root.val)
         return root
 
