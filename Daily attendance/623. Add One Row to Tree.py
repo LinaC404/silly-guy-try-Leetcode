@@ -22,6 +22,7 @@ class Solution(object):
         stack = deque([root])
         temp = deque([root])
         level = 1
+        
         while level<depth-1:
             temp = deque([])
             while stack:
@@ -35,7 +36,6 @@ class Solution(object):
         
         while temp:
             curr = temp.popleft()
-            print("???",curr.val)
             lnode = TreeNode(val,left = curr.left)
             rnode = TreeNode(val,right = curr.right)
             curr.left = lnode
