@@ -23,9 +23,8 @@ class Solution(object):
                 # remove current one
                 fre_count[num_fre[nums[i]]] -= 1
                 num_fre[nums[i]] -= 1
-                # fre_count[num_fre[nums[i]]] += 1
+                # fre_count[num_fre[nums[i]]] += 1 
                 if num_fre[nums[i-1]]*fre_count[num_fre[nums[i-1]]]==i:
-                    print(">>",i-1,nums[i-1])
                     return i+1
         return 1
 
